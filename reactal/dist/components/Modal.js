@@ -11,13 +11,9 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactFontawesome = require("@fortawesome/react-fontawesome");
-
 require("./styles/Modal.css");
 
 var _reactTransitionGroup = require("react-transition-group");
-
-var _freeBrandsSvgIcons = require("@fortawesome/free-brands-svg-icons");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -38,6 +34,25 @@ const Modal = props => {
       document.body.addEventListener("keydown", closeOnEscapeKayDown);
     };
   });
+
+  const header = () => {
+    if (props.title) {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/_react.default.createElement("h4", {
+        className: "modal-title"
+      }, props.title));
+    }
+  };
+
+  const footer = () => {
+    if (props.footer) {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "modal-footer"
+      }, props.footer);
+    }
+  };
+
   return /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement(_reactTransitionGroup.CSSTransition, {
     in: props.show,
     unmountOnExit: true,
@@ -51,20 +66,12 @@ const Modal = props => {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-content",
     onClick: e => e.stopPropagation()
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal-header"
-  }, /*#__PURE__*/_react.default.createElement("h4", {
-    className: "modal-title"
-  }, props.title), /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal-close_cross"
-  }, /*#__PURE__*/_react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-    icon: _freeBrandsSvgIcons.faCircleXmark,
+  }, header, /*#__PURE__*/_react.default.createElement("div", {
+    className: "modal-close",
     onClick: props.onClose
-  }))), /*#__PURE__*/_react.default.createElement("div", {
+  }), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-body"
-  }, props.children), /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal-footer"
-  }, props.footer)))), document.getElementById("root"));
+  }, props.children), footer))), document.getElementById("root"));
 };
 
 var _default = Modal;

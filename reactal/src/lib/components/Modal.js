@@ -1,10 +1,7 @@
 import ReactDOM from "react-dom";
 import React, { useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./styles/Modal.css";
 import { CSSTransition } from "react-transition-group";
-import { faCircleXmark } from '@fortawesome/free-brands-svg-icons'
-
 
 const Modal = (props) => {
   const closeOnEscapeKayDown = (e) => {
@@ -20,6 +17,22 @@ const Modal = (props) => {
     };
   });
 
+  const header = () => {
+    if (props.title) {
+      return (
+        <div className="modal-header">
+          <h4 className="modal-title">{props.title}</h4>
+        </div>
+      );
+    }
+  };
+
+  const footer = () => {
+    if (props.footer) {
+      return <div className="modal-footer">{props.footer}</div>;
+    }
+  };
+
   return ReactDOM.createPortal(
     <CSSTransition
       in={props.show}
@@ -28,17 +41,10 @@ const Modal = (props) => {
     >
       <div className="modal" onClick={props.onClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header">
-            <h4 className="modal-title">{props.title}</h4>
-            <div className="modal-close_cross">
-              <FontAwesomeIcon
-                icon={faCircleXmark}
-                onClick={props.onClose}
-              />
-            </div>
-          </div>
+          {header}
+          <div className="modal-close" onClick={props.onClose}></div>
           <div className="modal-body">{props.children}</div>
-          <div className="modal-footer">{props.footer}</div>
+          {footer}
         </div>
       </div>
     </CSSTransition>,
