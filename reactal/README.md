@@ -17,7 +17,3 @@ then implement the element as
 
 
 ***show*** props set with hook setShow on an onClick for example. 
-
-props.title is a string /n
-props.footer is string
-props.children is a html element
