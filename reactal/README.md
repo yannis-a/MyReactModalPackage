@@ -4,16 +4,16 @@
 
 To uses the component
 
-<code>import Modal from 'reactal'</code>
+`import Modal from 'reactal'`
 
 then implement the element as
 
-<code>
+`
     const [show, setShow] = useState(false);
     <Modal  show={show} onClose={() => setShow(false)} title="my title modal">
         Children
     </Modal>
-</code>
+`
 
 
 ***show*** props set with hook setShow on an onClick for example. 
