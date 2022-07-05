@@ -41,10 +41,10 @@ const Modal = (props) => {
     >
       <div className="modal" onClick={props.onClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          {header}
+          {header()}
           <div className="modal-close" onClick={props.onClose}></div>
           <div className="modal-body">{props.children}</div>
-          {footer}
+          {footer()}
         </div>
       </div>
     </CSSTransition>,

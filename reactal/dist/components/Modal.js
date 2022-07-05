@@ -66,12 +66,12 @@ const Modal = props => {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-content",
     onClick: e => e.stopPropagation()
-  }, header, /*#__PURE__*/_react.default.createElement("div", {
+  }, header(), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-close",
     onClick: props.onClose
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-body"
-  }, props.children), footer))), document.getElementById("root"));
+  }, props.children), footer()))), document.getElementById("root"));
 };
 
 var _default = Modal;
