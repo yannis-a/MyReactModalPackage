@@ -8,8 +8,11 @@ To uses the component
 
 then implement the element as
 
-`const [show, setShow] = useState(false);
- <Modal  show={show} onClose={() => setShow(false)} title="my title modal">
+`const [show, setShow] = useState(false);`
+
+`<Button onClick={() => setShow(true)}>Click to show modal </Button>`
+
+ `<Modal  show={show} onClose={() => setShow(false)} title="my title modal">
         Children
     </Modal>
 `
